@@ -8,8 +8,8 @@ def spellcheck(x):
 	checker = SpellChecker("en_US")
 	checker.set_text(x)
 	for err in checker:
-		print ("ERROR NOT ENGLISH WORD:", err.word)	
-	return
+		return(print ("ERROR NOT ENGLISH WORD:", err.word))
+	
 
 # identify text- what kind of code is it
 # if binary
@@ -24,9 +24,9 @@ if set(x).issubset(allowed_chars):
 		n = int(x, 2)
 		return(n.to_bytes((n.bit_length() + 7) // 8, 'big').decode())
 	newx = binfun(x)
-	print("BINARY DECODED AS: \"",newx,"\"")
+	print('BINARY DECODED AS: "'+newx+'"')
 	# check against spell checker
-	print(spellcheck(newx))
+	spellcheck(newx)
 else:
 	print ("this text is probably not binary")
 	
