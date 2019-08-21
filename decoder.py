@@ -1,5 +1,6 @@
 import enchant
 import binascii
+import base64
 
 x = input('type test word here: ') 
 
@@ -29,7 +30,6 @@ print (spellcheck(x))
 
 
 #IDENTIFY TEXT- WHAT KIND OF CODE IS IT
-
 #IF BINARY
 allowed_chars = set('10 ')
 if set(x).issubset(allowed_chars):
@@ -53,7 +53,6 @@ else:
 	print ("this text is probably not binary")
 
 #IDENTIFY TEXT- WHAT KIND OF CODE IS IT
-
 #IF CAESAR CIPHER
 #BRUTE FORCE CODE
 def caesarciph(x):
@@ -82,3 +81,37 @@ def caesarciph(x):
 	return
 
 caesarciph(x)	
+
+#IDENTIFY TEXT- WHAT KIND OF CODE IS IT
+#IF BASE
+allowed_chars = set('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890+/=')
+if set(x).issubset(allowed_chars):
+	print ("this text could be a base encoding!")
+
+	#TRANSLATE BINARY TO TEXT FUNCTION
+	def bases(x, basenum):
+		#DECODE
+		try:
+			n = eval('base64.'+('b'+str(basenum)+'decode')+"(x).decode('utf-8')")
+			response = spellcheck(n)
+			if response == 'english word(s) detected!':
+				n = ('BASE '+str(basenum)+' DECODED AS: "'+n+'"')
+				return(n)
+		except:
+			return("this text is probably not base"+str(basenum))
+
+	#CALL FUNCTION & PRINT
+	basesx = bases(x, 64)
+	print(basesx)
+
+	#CALL FUNCTION & PRINT
+	basesxy = bases(x, 32)
+	print(basesxy)
+
+	#CALL FUNCTION & PRINT
+	basesxyz = bases(x, 16)
+	print(basesxyz)
+
+
+else:
+	print ("this text is probably not a base encoding")
