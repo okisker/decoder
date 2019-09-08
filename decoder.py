@@ -1,6 +1,7 @@
 import enchant
 import binascii
 import base64
+import os
 
 x = input('type test word here: ') 
 
@@ -115,3 +116,97 @@ if set(x).issubset(allowed_chars):
 
 else:
 	print ("this text is probably not a base encoding")
+
+
+'''#TEST TEST TEST HASH DECODING
+question = input('Would you like to check hashes? y/n: ')
+
+def findmyhash(x, code):
+	try:
+		command = 'python findmyhash.py '+code+ ' -h '+x#+ ' -g'
+		os.system(command)
+	except:
+		if "NO HASH WAS CRACKED.":
+			return("this text is probably not "+(code))
+
+if question == 'y':
+	#CALL FUNCTION & PRINT
+	md4 = findmyhash(x, 'MD4')
+	print(md4)
+
+	#CALL FUNCTION & PRINT
+	md5 = findmyhash(x, 'MD5')
+	print(md5)
+
+	#CALL FUNCTION & PRINT
+	sha1 = findmyhash(x, 'SHA1')
+	print(sha1)
+
+	#CALL FUNCTION & PRINT
+	sha224 = findmyhash(x, 'SHA224')
+	print(sha224)
+
+	#CALL FUNCTION & PRINT
+	sha256 = findmyhash(x, 'SHA256')
+	print(sha256)
+
+	#CALL FUNCTION & PRINT
+	sha384 = findmyhash(x, 'SHA384')
+	print(sha384)
+
+	#CALL FUNCTION & PRINT
+	sha512 = findmyhash(x, 'SHA512')
+	print(sha512)
+
+	#CALL FUNCTION & PRINT
+	rmd160 = findmyhash(x, 'RMD160')
+	print(rmd160)
+
+	#CALL FUNCTION & PRINT
+	gost = findmyhash(x, 'GOST')
+	print(gost)
+
+	#CALL FUNCTION & PRINT
+	whirlpool = findmyhash(x, 'WHIRLPOOL')
+	print(whirlpool)
+
+	#CALL FUNCTION & PRINT
+	lm = findmyhash(x, 'LM')
+	print(lm)
+
+	#CALL FUNCTION & PRINT
+	ntlm = findmyhash(x, 'NTLM')
+	print(ntlm)
+
+	#CALL FUNCTION & PRINT
+	mysql = findmyhash(x, 'MYSQL')
+	print(mysql)
+
+	#CALL FUNCTION & PRINT
+	cisco7 = findmyhash(x, 'CISCO7')
+	print(cisco7)
+
+	#CALL FUNCTION & PRINT
+	juniper = findmyhash(x, 'JUNIPER')
+	print(juniper)
+
+	#CALL FUNCTION & PRINT
+	ldap_md5 = findmyhash(x, 'LDAP_MD5')
+	print(ldap_md5)
+
+	#CALL FUNCTION & PRINT
+	ldap_sha1 = findmyhash(x, 'LDAP_SHA1')
+	print(ldap_sha1)
+
+else:
+	print('okay, done!')
+
+
+
+#FUTURE GOALS:
+#AES
+#DES
+#3DES
+#RSA
+#Blowfish
+#Twofish'''
